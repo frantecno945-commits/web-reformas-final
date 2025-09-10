@@ -1,0 +1,14 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+<Layout>
+  <h1>Contacta con Nosotros</h1>
+  <p>¿Tienes una idea? Pide tu presupuesto sin compromiso. Llámanos al 642 43 39 38 o rellena el formulario.</p>
+
+  <form name="contacto" method="POST" data-netlify="true">
+    <p><label>Tu Nombre: <input type="text" name="name" /></label></p>
+    <p><label>Tu Email: <input type="email" name="email" /></label></p>
+    <p><label>Tu Mensaje: <textarea name="message"></textarea></label></p>
+    <p><button type="submit">Enviar Solicitud</button></p>
+  </form>
+</Layout>

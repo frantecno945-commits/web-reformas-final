@@ -5,10 +5,30 @@ import Layout from '../layouts/Layout.astro';
   <h1>Contacta con Nosotros</h1>
   <p>¿Tienes una idea? Pide tu presupuesto sin compromiso. Llámanos al 642 43 39 38 o rellena el formulario.</p>
 
-  <form name="contacto" method="POST" data-netlify="true">
-    <p><label>Tu Nombre: <input type="text" name="name" /></label></p>
-    <p><label>Tu Email: <input type="email" name="email" /></label></p>
-    <p><label>Tu Mensaje: <textarea name="message"></textarea></label></p>
-    <p><button type="submit">Enviar Solicitud</button></p>
+  <form name="contacto" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/gracias">
+    <!-- Campo oculto necesario para Netlify -->
+    <input type="hidden" name="form-name" value="contacto" />
+
+    <!-- Honeypot anti-spam -->
+    <p class="hidden">
+      <label>No rellenar: <input name="bot-field" /></label>
+    </p>
+
+    <p>
+      <label>Tu Nombre: <input type="text" name="nombre" required /></label>
+    </p>
+    <p>
+      <label>Tu Email: <input type="email" name="email" required /></label>
+    </p>
+    <p>
+      <label>Tu Mensaje: <textarea name="mensaje" required></textarea></label>
+    </p>
+    <p>
+      <button type="submit">Enviar Solicitud</button>
+    </p>
   </form>
+
+  <style>
+    .hidden { display:none; }
+  </style>
 </Layout>

@@ -1,11 +1,94 @@
 <header>
   <div class="logo">
-    <a href="/">Reformas Jose Sandu</a>
+    <a href="/">Reformas Comarca de Murcia</a>
   </div>
+
+  <!-- Botón hamburguesa solo en móvil -->
+  <button class="menu-toggle" onclick="document.querySelector('nav').classList.toggle('open')">
+    ☰
+  </button>
+
   <nav>
-    <a href="/">Inicio</a>
-    <a href="/servicios">Servicios</a>
-    <a href="/proyectos">Proyectos</a>
-    <a href="/contacto">Contacto</a>
+    <ul>
+      <li><a href="/">Inicio</a></li>
+      <li><a href="/servicios">Servicios</a></li>
+      <li><a href="/proyectos">Proyectos</a></li>
+      <li><a href="/contacto/">Contacto</a></li>
+    </ul>
   </nav>
+
+  <style>
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      background: #1f2937; /* gris oscuro */
+      color: white;
+      position: relative;
+    }
+
+    .logo a {
+      font-size: 1.3rem;
+      font-weight: bold;
+      text-decoration: none;
+      color: #f97316; /* naranja */
+    }
+
+    nav ul {
+      display: flex;
+      gap: 1.5rem;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: white;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    nav a:hover {
+      color: #f97316;
+    }
+
+    /* Botón hamburguesa oculto en escritorio */
+    .menu-toggle {
+      display: none;
+      font-size: 2rem;
+      background: none;
+      border: none;
+      color: white;
+      cursor: pointer;
+    }
+
+    /* --- Responsive --- */
+    @media (max-width: 768px) {
+      nav {
+        display: none;
+        position: absolute;
+        top: 100%;
+        right: 0;
+        background: #1f2937;
+        width: 200px;
+        border-radius: 0 0 0.5rem 0.5rem;
+      }
+
+      nav.open {
+        display: block;
+      }
+
+      nav ul {
+        flex-direction: column;
+        padding: 1rem;
+        gap: 1rem;
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+    }
+  </style>
 </header>
